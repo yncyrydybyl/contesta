@@ -8,6 +8,8 @@ gem "nifty-generators"
 gem 'haml'
 gem 'haml-rails'
 
+gem 'RedCloth'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

@@ -1,6 +1,6 @@
 - title @page.name
 
-= @page.content
+= raw RedCloth.new(@page.content).to_html
 
 - if current_user && current_user.is_admin?
   %p

@@ -5,8 +5,11 @@
     %br
     = f.text_field :name
     %br
-    = f.label :content
-    %br
-    = f.text_area :content
+    .page_content_edit
+      = f.label :content
+      %br
+      = f.text_area :content
+      %br
+      = link_to "textile supported", "http://redcloth.org/hobix.com/textile/", {:target => "_blank" }
   %p
     = f.submit
