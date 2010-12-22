@@ -2,7 +2,7 @@
 
 = @page.content
 
-- if @current_user && @current_user.is_admin?
+- if current_user && current_user.is_admin?
   %p
     = link_to "Edit", edit_page_path(@page)
     |
