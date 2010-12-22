@@ -1,4 +1,6 @@
 Contest::Application.routes.draw do
+  resources :categories
+
   resources :plattforms
 
   devise_for :users
