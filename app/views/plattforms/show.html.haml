@@ -1,0 +1,18 @@
+- title "Plattform"
+
+%p
+  %strong Name:
+  = @plattform.name
+%p
+  %strong Description:
+  = @plattform.description
+%p
+  %strong Shortname:
+  = @plattform.shortname
+
+%p
+  = link_to "Edit", edit_plattform_path(@plattform)
+  |
+  = link_to "Destroy", @plattform, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", plattforms_path

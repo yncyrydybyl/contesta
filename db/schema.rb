@@ -10,12 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101220144317) do
+ActiveRecord::Schema.define(:version => 20101222135314) do
 
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.text     "content"
     t.string   "permalink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plattforms", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "shortname"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

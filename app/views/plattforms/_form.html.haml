@@ -1,0 +1,16 @@
+= form_for @plattform do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :description
+    %br
+    = f.text_area :description
+  %p
+    = f.label :shortname
+    %br
+    = f.text_field :shortname
+  %p
+    = f.submit

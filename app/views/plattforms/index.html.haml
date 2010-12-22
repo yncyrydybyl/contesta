@@ -1,0 +1,17 @@
+- title "Plattforms"
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Shortname
+  - for plattform in @plattforms
+    %tr
+      %td= plattform.name
+      %td= plattform.description
+      %td= plattform.shortname
+      %td= link_to 'Show', plattform
+      %td= link_to 'Edit', edit_plattform_path(plattform)
+      %td= link_to 'Destroy', plattform, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Plattform", new_plattform_path
