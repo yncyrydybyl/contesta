@@ -1,0 +1,22 @@
+= form_for @submission do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.label :category_id
+    = collection_select(:submission, :category_id, Category.all, :id, :name, {:prompt => false})
+  %p
+    = f.label :plattform_id
+    = collection_select(:submission, :plattform_id, Plattform.all, :id, :name, {:prompt => false})
+  %p
+    = f.label :url
+    %br
+    = f.text_field :url
+  %p
+    = f.label :description
+    %br
+    = f.text_area :description
+  %p
+    = f.submit

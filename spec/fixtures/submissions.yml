@@ -1,0 +1,15 @@
+one:
+  title: MyString
+  user_id: 1
+  category_id: 1
+  plattform_id: 1
+  url: MyString
+  description: MyText
+
+two:
+  title: MyString
+  user_id: 1
+  category_id: 1
+  plattform_id: 1
+  url: MyString
+  description: MyText

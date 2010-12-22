@@ -1,0 +1,23 @@
+- title "Submissions"
+
+%table
+  %tr
+    %th Title
+    %th User
+    %th Category
+    %th Plattform
+    %th Url
+    %th Description
+  - for submission in @submissions
+    %tr
+      %td= submission.title
+      %td= submission.user_id
+      %td= submission.category_id
+      %td= submission.plattform_id
+      %td= submission.url
+      %td= submission.description
+      %td= link_to 'Show', submission
+      %td= link_to 'Edit', edit_submission_path(submission)
+      %td= link_to 'Destroy', submission, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Submission", new_submission_path

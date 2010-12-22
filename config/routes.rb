@@ -1,4 +1,6 @@
 Contest::Application.routes.draw do
+  resources :submissions
+
   resources :categories
 
   resources :plattforms
