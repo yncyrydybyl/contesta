@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+#
+["audio", "visual", "interactive"].each do |cat|
+    Category.find_or_create_by_name(cat)
+end
+
+open("db/plattform.txt") do |plattforms|
+  plattforms.read.each_line do |plattform|
+    name, shortname, description = plattform.chomp.split("|")
+    Plattform.create!(:name => name, :shortname => shortname, :description => description)
+  end
+end
+
+#["meego", "ios", "android"].each do |plattform|
+#  Plattform.find_or_create_by_shortname

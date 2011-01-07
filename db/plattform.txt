@@ -1,0 +1,3 @@
+meego|meego|meego is a operating system developed by nokia and intel
+ios|ios|mobile operating system from apple
+android|android| mobile operating system done by google and open handset alliance
