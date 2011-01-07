@@ -1,18 +1,51 @@
 body {
-  background-color: #4b7399;
+  background-color: black;
   font-family: Verdana, Helvetica, Arial;
-  font-size: 14px; }
+  font-size: 14px;
+  color: red; }
+  body .head {
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    background: pink url(/images/skyline.png) no-repeat;
+    height: 91px;
+    width: 858px;
+    padding: 0;
+    position: relative; }
+    body .head h1 {
+      margin: 0;
+      margin-left: 20px;
+      font-family: "Coda", arial, serif;
+      color: red;
+      position: absolute;
+      bottom: -10px; }
+    body .head .categories {
+      position: absolute;
+      bottom: -10px;
+      right: 15px; }
+      body .head .categories ul li {
+        display: inline; }
 
 a {
-  color: blue; }
+  color: grey; }
   a img {
     border: none; }
 
 .loginbox {
-  font-size: 20px;
-  right: 30px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  background: black;
+  font-size: 16px;
+  right: 5px;
   top: 5px;
-  position: absolute; }
+  padding: 5px 10px 8px 10px;
+  position: absolute;
+  color: red; }
+  .loginbox a {
+    color: grey; }
 
 .clear {
   clear: both;

@@ -1,22 +1,60 @@
-$primary_color: #4b7399
+///#$primary_color: #4b7399
+$primary_color: black
+$link_color: grey
+$font_color: red
+$t: pink
+
+@mixin roundcorners($radius)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  -khtml-border-radius: $radius
+  border-radius: $radius
 
 body
   background-color: $primary_color
   font:
     family: Verdana, Helvetica, Arial
     size: 14px
+  color: $font_color
 
+  .head
+    @include roundcorners(20px)
+
+    background: $t url(/images/skyline.png) no-repeat
+    height: 91px
+    width: 858px
+    padding: 0
+    position: relative
+    h1
+      margin: 0
+      margin-left: 20px
+      font-family: 'Coda', arial, serif
+      color: $font_color
+      position: absolute
+      bottom: -10px
+    .categories
+      position: absolute
+      bottom: -10px
+      right: 15px
+      ul
+        li
+          display: inline
 a
-  color: blue
+  color: $link_color
   img
     border: none
 
 .loginbox
-  font-size: 20px
-  right: 30px
+  @include roundcorners(20px)
+  background: $primary_color
+  font-size: 16px
+  right: 5px
   top: 5px
+  padding: 5px 10px 8px 10px
   position: absolute
-
+  color: $font_color
+  a
+    color: $link_color
 .clear
   clear: both
   height: 0
