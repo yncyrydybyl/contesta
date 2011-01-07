@@ -20,7 +20,10 @@
     = f.text_area :description
   %p
     = f.label :screenshot
-    = f.fields_for :assets do |asset|
-      = asset.file_field :screenshot
+    = f.fields_for :screenshots do |screenshot|
+      = screenshot.file_field :image
+  %p
+    = f.label :artefact
+    = f.file_field :artefact
   %p
     = f.submit

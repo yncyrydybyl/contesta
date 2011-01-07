@@ -10,7 +10,7 @@ class SubmissionsController < ApplicationController
   
   def new
     @submission = Submission.new
-    5.times {@submission.assets.build}
+    5.times {@submission.screenshots.build}
   end
   
   def create
@@ -26,7 +26,7 @@ class SubmissionsController < ApplicationController
   
   def edit
     @submission = Submission.find(params[:id])
-    5.times {@submission.assets.build}
+    (5 - @submission.screenshots.size).times {@submission.screenshots.build}
   end
   
   def update

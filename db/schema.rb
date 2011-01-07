@@ -10,13 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101223115030) do
-
-  create_table "assets", :force => true do |t|
-    t.integer  "submission_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110107175545) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -40,6 +34,16 @@ ActiveRecord::Schema.define(:version => 20101223115030) do
     t.datetime "updated_at"
   end
 
+  create_table "screenshots", :force => true do |t|
+    t.integer  "submission_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "submissions", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -49,10 +53,10 @@ ActiveRecord::Schema.define(:version => 20101223115030) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "screenshot_file_name"
-    t.string   "screenshot_content_type"
-    t.integer  "screenshot_file_size"
-    t.datetime "screenshot_updated_at"
+    t.string   "artefact_file_name"
+    t.string   "artefact_content_type"
+    t.integer  "artefact_file_size"
+    t.datetime "artefact_updated_at"
   end
 
   create_table "users", :force => true do |t|
