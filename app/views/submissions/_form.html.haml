@@ -2,28 +2,27 @@
   = f.error_messages
   %p
     = f.label :title
-    %br
     = f.text_field :title
-  %p
     = f.label :category_id
     = collection_select(:submission, :category_id, Category.all, :id, :name, {:prompt => false})
-  %p
     = f.label :plattform_id
     = collection_select(:submission, :plattform_id, Plattform.all, :id, :name, {:prompt => false})
   %p
-    = f.label :url
-    %br
-    = f.text_field :url
-  %p
     = f.label :description
     %br
-    = f.text_area :description
+    = f.text_area :description, :size => "90x5"
   %p
-    = f.label :screenshot
+    Please add some screenshots of the application.
     = f.fields_for :screenshots do |screenshot|
-      = screenshot.file_field :image
+      .foo
+        = screenshot.file_field :image
   %p
-    = f.label :artefact
-    = f.file_field :artefact
+    If you have some binary or installable file you can upload it as artefact.
+    .foo
+      = f.file_field :artefact
+  %p
+    If there is some external url please tell us.
+    .foo
+      = f.text_field :url
   %p
     = f.submit

@@ -1,12 +1,14 @@
 - title "Category"
-
-%p
-  %strong Name:
+%h2
   = @category.name
-
-%p
-  = link_to "Edit", edit_category_path(@category)
-  |
-  = link_to "Destroy", @category, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", categories_path
+.submission_entries
+  - @submissions.each do |submission|
+    %h3 
+      =submission.title
+    .submission_description
+      = submission.description
+    .submission_screenshots
+      - submission.screenshots.each do |screenshot|
+        = image_tag screenshot.image.url(:thumb)
+        
+    = link_to "Edit", edit_submission_path(submission)

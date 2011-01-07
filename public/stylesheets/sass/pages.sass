@@ -1,15 +1,5 @@
-///#$primary_color: #4b7399
-$primary_color: black
-$link_color: grey
-$font_color: red
-$t: pink
-
-@mixin roundcorners($radius)
-  -moz-border-radius: $radius
-  -webkit-border-radius: $radius
-  -khtml-border-radius: $radius
-  border-radius: $radius
-
+@import vars
+@import mix
 body
   background-color: $primary_color
   font:
@@ -22,7 +12,6 @@ body
 
     background: $t url(/images/skyline.png) no-repeat
     height: 91px
-    width: 858px
     padding: 0
     position: relative
     h1
@@ -55,15 +44,18 @@ a
   color: $font_color
   a
     color: $link_color
+  .subs
+    font-size: 10px
+
 .clear
   clear: both
   height: 0
   overflow: hidden
 
-#container
-  width: 75%
+
+#container, .head
+  width: $site_width
   margin: 0 auto
-  background: white
   padding: 20px 40px
   border: solid 1px black
   margin-top: 20px
