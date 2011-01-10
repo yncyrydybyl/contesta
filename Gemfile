@@ -7,6 +7,8 @@ gem "nifty-generators"
 
 gem 'haml'
 gem 'haml-rails'
+  gem "jquery-rails"
+
 
 gem 'RedCloth'
 

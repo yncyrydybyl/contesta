@@ -6,9 +6,8 @@
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Coda:800'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Syncopate'
     = javascript_include_tag :defaults
-    = csrf_meta_tag
   %body
-    .head
+    .head.clickable{ :url => "/" }
       %h1
         transmediale 11 art effect contest
       .loginbox
