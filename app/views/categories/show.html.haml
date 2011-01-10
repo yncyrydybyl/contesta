@@ -4,7 +4,7 @@
 .submission_entries
   - @submissions.each do |submission|
     %h3 
-      =submission.title
+      = submission.category.name + ":" + submission.title 
     .submission_description
       = submission.description
     .submission_screenshots
