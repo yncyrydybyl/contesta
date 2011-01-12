@@ -3,12 +3,4 @@
   = @category.name
 .submission_entries
   - @submissions.each do |submission|
-    %h3 
-      = submission.category.name + ":" + submission.title 
-    .submission_description
-      = submission.description
-    .submission_screenshots
-      - submission.screenshots.each do |screenshot|
-        = image_tag screenshot.image.url(:thumb)
-    -if can? :manage, Category
-    = link_to "Edit", edit_submission_path(submission)
+    = render :partial => "submissions/small_sub", :object => submission

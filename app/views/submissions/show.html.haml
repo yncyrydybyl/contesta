@@ -1,27 +1,3 @@
 - title "Submission"
+= render :partial => "small_sub", :object => @submission
 
-%p
-  %strong Title:
-  = @submission.title
-%p
-  %strong User:
-  = @submission.user_id
-%p
-  %strong Category:
-  = @submission.category_id
-%p
-  %strong Plattform:
-  = @submission.plattform_id
-%p
-  %strong Url:
-  = @submission.url
-%p
-  %strong Description:
-  = @submission.description
-
-%p
-  = link_to "Edit", edit_submission_path(@submission)
-  |
-  = link_to "Destroy", @submission, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", submissions_path

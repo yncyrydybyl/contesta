@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :submissions
   def admin?
-    email == "t@c-base.org"
+    ["t@c-base.org","zehjotkah@googlemail.com", "jukey@ju-key.de"].include? email
   end
 end

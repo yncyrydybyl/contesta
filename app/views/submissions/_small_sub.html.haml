@@ -1,0 +1,14 @@
+.submission
+  %h2
+    = small_sub.title 
+  = "done by #{small_sub.user.email}"
+  = link_to small_sub.plattform.name, plattform_path(small_sub.plattform)
+  = link_to small_sub.category.name, category_path(small_sub.category)
+  .description
+    = small_sub.description
+  .screenshots
+    - small_sub.screenshots.each do |screenshot|
+      = image_tag screenshot.image.url(:thumb)
+
+  - if small_sub.user == current_user
+    = link_to "edit", edit_submission_path(small_sub)
