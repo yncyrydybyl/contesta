@@ -10,6 +10,7 @@ class Ability
           can :manage, :all
         else
           can [:create, :update, :destroy], Submission
+          can :read, [Submission,Page, Category, Plattform]
         end
       else
         can :read, [Submission,Page, Category, Plattform]
