@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'devise'
+gem 'cancan' , :git => "git://github.com/ryanb/cancan.git"
+
 #gem 'rails3-generators'
 gem "nifty-generators"
 

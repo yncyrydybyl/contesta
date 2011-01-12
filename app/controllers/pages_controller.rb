@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  load_and_authorize_resource
   # GET /pages
   # GET /pages.xml
   def index

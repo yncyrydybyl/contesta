@@ -2,7 +2,7 @@
 
 = raw RedCloth.new(@page.content).to_html
 
-- if current_user && current_user.is_admin?
+- if can? :manage, Page
   %p
     = link_to "Edit", edit_page_path(@page)
     |
