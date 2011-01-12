@@ -8,7 +8,7 @@ class Ability
       if user
         if user.admin?
           can :manage, :all
-        elsif user_signed_in?
+        else
           can [:create, :update, :destroy], Submission
         end
       else
