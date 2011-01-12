@@ -9,10 +9,10 @@
 %p
   %strong Shortname:
   = @plattform.shortname
-
-%p
-  = link_to "Edit", edit_plattform_path(@plattform)
-  |
-  = link_to "Destroy", @plattform, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", plattforms_path
+-if can? :manage, Plattform
+  %p
+    = link_to "Edit", edit_plattform_path(@plattform)
+    |
+    = link_to "Destroy", @plattform, :confirm => 'Are you sure?', :method => :delete
+    |
+    = link_to "View All", plattforms_path

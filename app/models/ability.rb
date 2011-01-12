@@ -12,7 +12,7 @@ class Ability
           can [:create, :update, :destroy], Submission
         end
       else
-        can :read, [Submission,Page]
+        can :read, [Submission,Page, Category, Plattform]
       end
     #
     # The first argument to `can` is the action you are giving the user permission to do.
