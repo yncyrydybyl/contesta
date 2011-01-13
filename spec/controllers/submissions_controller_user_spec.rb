@@ -1,70 +1,68 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe PlattformsController do
-#  fixtures :all
+describe SubmissionsController do
   render_views
 
   before (:each) do
     @user = Factory.create(:user)
-    @admin = Factory.create(:admin)
+    @category = Factory.create(:category)
     @plattform = Factory.create(:plattform)
+    @submission = Factory.create(:submission)
+    @submission.plattform = @plattform
+    @submission.category = @category
+    @submission.user = @user
+    sign_in @user
   end
 
   it "index action should render index template" do
+    puts Submission.all.size
     get :index
     response.should render_template(:index)
   end
   
   it "show action should render show template" do
-    get :show, :id => Plattform.first
+    get :show, :id => Submission.first
     response.should render_template(:show)
   end
   
-  it "new action should render new template for admin" do
-    sign_in @admin 
+  it "new action should render new template" do
     get :new
     response.should render_template(:new)
   end
   
   it "create action should render new template when model is invalid" do
-    sign_in @admin 
-    Plattform.any_instance.stubs(:valid?).returns(false)
+    Submission.any_instance.stubs(:valid?).returns(false)
     post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
-    sign_in @admin 
-    Plattform.any_instance.stubs(:valid?).returns(true)
+    Submission.any_instance.stubs(:valid?).returns(true)
     post :create
-    response.should redirect_to(plattform_url(assigns[:plattform]))
+    response.should redirect_to(submission_url(assigns[:submission]))
   end
   
   it "edit action should render edit template" do
-    sign_in @admin 
-    get :edit, :id => Plattform.first
+    get :edit, :id => Submission.first
     response.should render_template(:edit)
   end
   
   it "update action should render edit template when model is invalid" do
-    sign_in @admin 
-    Plattform.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Plattform.first
+    Submission.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Submission.first
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
-    sign_in @admin 
-    Plattform.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Plattform.first
-    response.should redirect_to(plattform_url(assigns[:plattform]))
+    Submission.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Submission.first
+    response.should redirect_to(submission_url(assigns[:submission]))
   end
   
   it "destroy action should destroy model and redirect to index action" do
-    sign_in @admin 
-    plattform = Plattform.first
-    delete :destroy, :id => plattform
-    response.should redirect_to(plattforms_url)
-    Plattform.exists?(plattform.id).should be_false
+    submission = Submission.first
+    delete :destroy, :id => submission
+    response.should redirect_to(submissions_url)
+    Submission.exists?(submission.id).should be_false
   end
 end
