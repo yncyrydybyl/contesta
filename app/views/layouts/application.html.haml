@@ -25,9 +25,8 @@
           = link_to "Sign in", new_user_session_path
       .categories
         %ul
-          - Category.all.each do |cat|
-            %li 
-              = link_to cat.name, category_path(cat)
+          %li 
+            = link_to "all submissions", submissions_path
     -if flash[:alert] || flash[:warning] || flash[:notice]
       #notices
         .alert
