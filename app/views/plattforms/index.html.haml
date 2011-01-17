@@ -8,7 +8,7 @@
   - for plattform in @plattforms
     %tr
       %td= plattform.name
-      %td= plattform.description
+      %td= raw RedCloth.new(plattform.description).to_html
       %td= plattform.shortname
       %td= link_to 'Show', plattform
       %td= link_to 'Edit', edit_plattform_path(plattform)

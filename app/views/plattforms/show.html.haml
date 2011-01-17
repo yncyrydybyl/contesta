@@ -1,14 +1,10 @@
 - title "Plattform"
 
+= @plattform.name
+= @plattform.shortname
 %p
-  %strong Name:
-  = @plattform.name
-%p
-  %strong Description:
-  = @plattform.description
-%p
-  %strong Shortname:
-  = @plattform.shortname
+  = raw RedCloth.new(@plattform.description).to_html
+
 -if can? :manage, Plattform
   %p
     = link_to "Edit", edit_plattform_path(@plattform)
