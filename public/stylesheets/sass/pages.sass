@@ -2,15 +2,15 @@
 @import mix
 body
   background-color: $primary_color
+  color: $font_color
   font:
     family: Verdana, Helvetica, Arial
     size: 14px
-  color: $font_color
 
   .head
     @include roundcorners(20px)
 
-    background: $font_color url(/images/berlin_skyline.png) no-repeat
+    background: $header_color url(/images/berlin_skyline.png) no-repeat
     height: 120px
     padding: 0
     position: relative
@@ -59,7 +59,6 @@ a
   width: $site_width
   margin: 0 auto
   padding: 20px 40px
-  border: solid 1px black
   margin-top: 20px
 
 #flash_notice,
