@@ -4,5 +4,5 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "he du nase da darfst du nicht ran!!!"
     redirect_to root_url
   end
-
+  helper_method :admin?
 end
