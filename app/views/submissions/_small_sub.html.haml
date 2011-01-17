@@ -9,7 +9,7 @@
   = link_to small_sub.plattform.name, plattform_path(small_sub.plattform)
   = link_to small_sub.category.name, category_path(small_sub.category)
   .description
-    = small_sub.description
+    = raw RedCloth.new(small_sub.description).to_html
   .screenshots
     - small_sub.screenshots.each do |screenshot|
       = image_tag screenshot.image.url(:thumb)
