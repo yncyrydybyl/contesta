@@ -3,7 +3,6 @@
 //
 $(document).ready(function(){
   $('.clickable').click(function() {
-    console.log($(this));
     window.location = $(this).attr("url");
   });
 });
