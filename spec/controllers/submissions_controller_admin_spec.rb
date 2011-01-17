@@ -6,6 +6,7 @@ describe SubmissionsController do
 
   before (:each) do
     @admin = Factory.create(:admin)
+    @submission = Factory.create(:submission)
     sign_in @admin
   end
 

@@ -7,15 +7,13 @@ describe SubmissionsController do
     @user = Factory.create(:user)
     @category = Factory.create(:category)
     @plattform = Factory.create(:plattform)
-    @submission = Factory.create(:submission)
+    @submission = Factory.create(:submission, :user => @user) 
     @submission.plattform = @plattform
     @submission.category = @category
-    @submission.user = @user
     sign_in @user
   end
 
   it "index action should render index template" do
-    puts Submission.all.size
     get :index
     response.should render_template(:index)
   end
