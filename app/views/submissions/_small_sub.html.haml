@@ -12,7 +12,7 @@
     = raw RedCloth.new(small_sub.description).to_html
   .screenshots
     - small_sub.screenshots.each do |screenshot|
-      = image_tag screenshot.image.url(:thumb)
+      =link_to(image_tag(screenshot.image.url(:thumb)),screenshot.image.url(:large),{:class => "lightbox"})
 
   - if current_user 
     - if small_sub.user == current_user or current_user.admin?
