@@ -17,6 +17,6 @@
   - if current_user 
     - if small_sub.user == current_user or current_user.admin?
       %ul
-        %li= link_to "edit", edit_submission_path(small_sub)
-        %li= link_to "download artefact", small_sub.artefact.url
-
+        %li= link_to "edit", edit_submission_path(small_sub)  
+        -if small_sub.artefact.exists?
+          %li= link_to "download artefact", small_sub.artefact.url 
