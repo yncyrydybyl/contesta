@@ -4,7 +4,7 @@
     - if small_sub.url 
       = link_to 'link', small_sub.url, :target => :blank
   - email = small_sub.user.email
-  = "done by #{email.split('@')[0]}@***.#{email.split('.').last}"
+  = "submitted by #{email.split('@')[0]}@***.#{email.split('.').last}"
 
   = link_to small_sub.plattform.name, plattform_path(small_sub.plattform)
   = link_to small_sub.category.name, category_path(small_sub.category)
