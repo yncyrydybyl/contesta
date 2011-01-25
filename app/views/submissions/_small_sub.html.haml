@@ -1,22 +1,30 @@
 .submission
   %h2
     = small_sub.title 
-    - if small_sub.url 
-      = link_to 'link', small_sub.url, :target => :blank
-  - email = small_sub.user.email
-  = "submitted by #{email.split('@')[0]}@***.#{email.split('.').last}"
-
-  = link_to small_sub.plattform.name, plattform_path(small_sub.plattform)
-  = link_to small_sub.category.name, category_path(small_sub.category)
+  %p
+    - email = small_sub.user.email
+    = "submitted by #{email.split('@')[0]}@***.#{email.split('.').last}"
+  %p
+    = "platform: " 
+    = link_to small_sub.plattform.name, plattform_path(small_sub.plattform)
+    = "| OS: "
+    = link_to small_sub.category.name, category_path(small_sub.category)
+  %b
+    = "Details: "
   .description
     = raw RedCloth.new(small_sub.description).to_html
+  %b
+    = "Screenshots: "
   .screenshots
     - small_sub.screenshots.each do |screenshot|
       =link_to(image_tag(screenshot.image.url(:thumb)),screenshot.image.url(:large),{:class => "lightbox"})
-
+  %br
+  - if small_sub.url 
+    = link_to '(Quelle)', small_sub.url, :target => :blank
   - if current_user 
     - if small_sub.user == current_user or current_user.admin?
       %ul
         %li= link_to "edit", edit_submission_path(small_sub)  
         -if small_sub.artefact.exists?
           %li= link_to "download artefact", small_sub.artefact.url 
+  %hr
