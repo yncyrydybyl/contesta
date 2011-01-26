@@ -1,6 +1,6 @@
 .submission
   %h2
-    = small_sub.title 
+    = link_to small_sub.title, submission_path(small_sub)
   %p
     - email = small_sub.user.email
     = "submitted by #{email.split('@')[0]}@***.#{email.split('.').last}"
@@ -27,4 +27,3 @@
         %li= link_to "edit", edit_submission_path(small_sub)  
         -if small_sub.artefact.exists?
           %li= link_to "download artefact", small_sub.artefact.url 
-  %hr
