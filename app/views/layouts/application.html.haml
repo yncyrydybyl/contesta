@@ -38,5 +38,6 @@
           =flash[:notice]
     #container
       = yield
-  
-    = javascript_include_tag 'ga' 
+      #footer
+        = render :partial => "layouts/footer"
+      = javascript_include_tag 'ga' 

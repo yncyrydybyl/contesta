@@ -110,10 +110,32 @@ a
     margin: 0
     font:
       weight: bold
-      size: 12px
+    font-size: 18px
     background-color: #cc0000
-    color: white
+    color: white 
+    a
+      font-size: 10px
   p
     margin: 8px 10px
   ul
     margin: 0
+
+hr
+  @include roundcorners(5px)
+  color: $header_color
+  background-color: transparentize($header_color,0.5)
+  height: 8px
+  border: 8px
+
+
+.clearfix:after
+  content: "."
+  display: block
+  height: 0
+  clear: both
+  visibility: hidden
+/* Hides from IE-mac \*/
+* html .clearfix
+  height: 1%
+/* End hide from IE-mac */
+
