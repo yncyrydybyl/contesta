@@ -4,6 +4,8 @@
   %p
     - email = small_sub.user.email
     = "submitted by #{email.split('@')[0]}@***.#{email.split('.').last}"
+    = "on "
+    = small_sub.created_at
   %p
     = "platform: " 
     = link_to small_sub.plattform.name, plattform_path(small_sub.plattform)
