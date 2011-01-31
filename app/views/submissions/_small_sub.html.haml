@@ -21,7 +21,7 @@
     - small_sub.screenshots.each do |screenshot|
       =link_to(image_tag(screenshot.image.url(:thumb)),screenshot.image.url(:large),{:class => "lightbox"})
   %br
-  - if small_sub.url 
+  - if small_sub.url? 
     = link_to '(Quelle)', small_sub.url, :target => :blank
   - if current_user 
     - if small_sub.user == current_user or current_user.admin?
