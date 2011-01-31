@@ -9,7 +9,8 @@ class Ability
         if user.admin?
           can :manage, :all
         else
-          can [:create, :update, :destroy], Submission
+          can :create, Submission
+          can [:destroy, :update], Submission, :user_id => user.id
           can :read, [Submission,Page, Category, Plattform]
         end
       else
