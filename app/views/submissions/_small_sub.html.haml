@@ -19,7 +19,7 @@
     = "Screenshots: "
   .screenshots
     - small_sub.screenshots.each do |screenshot|
-      =link_to(image_tag(screenshot.image.url(:thumb)),screenshot.image.url(:large),{:class => "lightbox"})
+      =link_to(image_tag(screenshot.image.url(:thumb)),screenshot.image.url(:large),{:class => "lightbox",:rel => "lightbox_submission#{small_sub.id}"})
   %br
   - if small_sub.url? 
     = link_to '(Quelle)', small_sub.url, :target => :blank
