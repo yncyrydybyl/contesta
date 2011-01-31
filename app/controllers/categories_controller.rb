@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   
   def show
     @category = Category.find(params[:id])
-    @submissions = @category.submissions
+    @submissions = @category.submissions.reverse
   end
   
   def new
