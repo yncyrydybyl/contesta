@@ -6,6 +6,7 @@ class PlattformsController < ApplicationController
   
   def show
     @plattform = Plattform.find(params[:id])
+    @submissions = @plattform.submissions.reverse
   end
   
   def new

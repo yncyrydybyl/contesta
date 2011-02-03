@@ -5,4 +5,4 @@
   = link_to '(Quelle)', submission_teaser.url, :target => :blank
 .screenshots
   - submission_teaser.screenshots.each do |screenshot|
-    =link_to(image_tag(screenshot.image.url(:thumb)),screenshot.image.url(:large),{:class => "lightbox",:rel => "lightbox_submission#{submission_teaser.id}"})
+    =link_to(image_tag(screenshot.image.url(:mini)),screenshot.image.url(:large),{:class => "lightbox",:rel => "lightbox_submission#{submission_teaser.id}"})
