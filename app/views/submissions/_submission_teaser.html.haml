@@ -1,0 +1,8 @@
+%h3= link_to submission_teaser.title, submission_path(submission_teaser)
+- email = submission_teaser.user.email
+= "submitted by #{email.split('@')[0]}@***.#{email.split('.').last}" 
+- if submission_teaser.url? 
+  = link_to '(Quelle)', submission_teaser.url, :target => :blank
+.screenshots
+  - submission_teaser.screenshots.each do |screenshot|
+    =link_to(image_tag(screenshot.image.url(:thumb)),screenshot.image.url(:large),{:class => "lightbox",:rel => "lightbox_submission#{submission_teaser.id}"})
