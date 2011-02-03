@@ -3,6 +3,10 @@ class SubmissionsController < ApplicationController
   load_and_authorize_resource
   def index
     @submissions = Submission.all.reverse
+    respond_to do |format|
+      format.html
+      format.atom
+    end
   end
   
   def show
