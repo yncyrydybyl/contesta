@@ -1,11 +1,14 @@
 - title "Plattform"
 
 = @plattform.name
-= @plattform.shortname
 %p
   = raw RedCloth.new(@plattform.description).to_html
-
--if can? :manage, Plattform
+%h2 here you see all submissions for 
+=@plattform.name
+.submission_entries
+  - @submissions.each do |submission|
+    = render :partial => "submissions/submission_teaser", :object => submission
+- if can? :manage, Plattform
   %p
     = link_to "Edit", edit_plattform_path(@plattform)
     |
