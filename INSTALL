@@ -1,0 +1,120 @@
+This installation guide is writen in german yet and needs to be translated. Feel free to add the translation!
+
+Überblick
+=========
+Um contesta in einer lokalen Umgebung zu installieren und zu testen wird Ruby on Rails benötigt. Nachfolgende Anleitung beschreibt die Installation für die Linux Distributionen MeeGo und Ubuntu, es sollte aber auf gleichem Wege auch unter anderen Distributionen funktionieren. 
+
+Die Installation erfolgt in drei Schritten:
+  1. Installieren des Ruby Version Mangers (RVM)
+  2. Installieren von Ruby on Rails im home-dir des angemeldeten Benutzers
+  3. Installation bundler und contesta
+
+Voraussetzungen
+===============
+
+Um nachfolgende Anleitung durchführen zu können müssen einige benötigte Software-Pakete installiert werden.
+* curl
+* make
+* gcc
+* joe
+(Ich nutze in der nachfolgenden Beschreibung joe als Editor. Natürlich kannst Du auch einen anderen Editor Deiner Wahl verwenden.)
+
+Unter MeeGo:
+$ sudo zypper install curl joe gcc make libxml2-devel libxslt-devel sqlite-devel
+
+Unter Ubuntu:
+$ sudo apt-get install curl joe build-essential libxml2-dev libxslt-dev libsqlite3-dev
+
+Um auf Zugriff auf das Projekt zu erhalten wird ein gitorious-Account benötigt. Dieser kann unter:
+http://dev.c-base.org/contesta
+angelegt werden. Wir öffnen eine Shell auf unserem lokalen Rechner und erzeugen mit Hilfe des folgenden Kommandos ein Paar OpenSSH-Keys (dieser Schritt ist optional, wenn bereits ein Key vorhanden ist):
+$ ssh-keygen
+Den öffentlichen Schlüssel geben wir aus indem wir Eingeben:
+$ cat /home/<yourusername>/.ssh/id_rsa.pub
+
+Den Output können wir nun im Webinterface einfügen indem wir nach dem Login auf "Manage SSH-Keys" klicken und den dortigen Anweisungen yum hinterlegen eines Keys folgen.
+
+Installation rvm
+================
+
+Nachfolgender Befehl läd die aktuelle Version von rvm herunter und installiert sie:
+$ bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+
+Um rvm innerhalb des Systems bekannt und erreicbar zu machen muss die .bashrc editiert werden. Wir starten den Editor:
+
+$ joe ~/.bashrc
+
+a) Ubuntu:
+Wir löschen die folgende Zeile (Cursor in die Zeile bewegen und Ctrl+Y):
+[ -z "$PS1" ] && return
+
+und ersetzen sie durch:
+if [[ -n "$PS1" ]]; then
+
+Dann scrollen wir ganz ans Ende der Datei und fügen den folgendes ein:
+
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+
+fi 
+
+(Quelle: http://www.christopherirish.com/2010/08/25/how-to-install-rvm-on-ubuntu-10-04/ )
+
+b) MeeGo:
+Die .bashrc ist unter MeeGo nur sehr rudimentär mit Inhalt versehen. Es genügt am Ende der Datei folgendes einzufügen:
+MeeGo: [[ -s “$HOME/.rvm/scripts/rvm” ]] && source “$HOME/.rvm/scripts/rvm”
+
+(Allgemeine Hinweise zur Installation: http://rvm.beginrescueend.com/rvm/install/ )
+
+Ruby on Rails installieren
+==========================
+Für den nächstn Schritt werden gcc und make benötigt.
+
+Nun endlich ruby installieren:
+$ rvm list known
+–> checke ich verfügbare versionen? RVM kann das und ist daher cool!
+
+$ rvm package install zlib
+$ rvm package install openssl
+(vegisst man o.g. Kommando muss man später ruby 1.9.2 erst wieder deinstallieren: “rvm remove 1.9.2” )
+
+$ rvm install 1.9.2 --with-zlib-dir=$rvm_path/usr --with-openssl-dir=$rvm_path/usr
+(es werden die zlib und openssl Pakete genommen, die zuvor installiert wurden.
+
+Das kann locker eine halbe Stunde dauern auf einem Netbook, Danach das Ruby im home-Verzeichnis zum Standard machen:
+
+temporär:
+$ rvm use 1.9.2
+
+dauerhaft:
+$rvm use --default 1.9.2
+
+Prüfen mit:
+$ which ruby
+
+Bundler und contesta installieren
+=================================
+$ gem install bundler
+
+Um uns eine lokale Kopie von contesta anzulegen verwenden wir git. Bevor wir das Projekt in ein lokales Verzeichnis clonen benötigen wir jedoch den Eingangs Anfangs erzeugten SSH-Schlüssel den wir in unseren gitorious Account hinterlegt haben. Wir starten den Vorgang mit Hilfe des Kommandos:
+$ git clone git@dev.c-base.org:contesta/contesta.git
+
+Nachdem der clone Vorgang abgeschlossen ist wechseln wir in das contesta-Verzeichnis und lassen weitere benötigte gems installieren. Dabei hilft uns das zuvor installierte bundler:
+$ bundle install 
+
+OPTIONAL anfang
+Möglichkeiten evaluieren per:
+$ rake -T
+OPTIONAL ende
+
+Mit Hilfe des Befehls: 
+
+$ rake db:setup
+
+werden die benötigten Datenbanken erzeugt. Der Befehl:
+
+$ rake db:seed
+
+befüllt die Datenbanken initial. (Verifizieren)
+
+Starten des Webservers:
+$ rails s
