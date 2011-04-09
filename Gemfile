@@ -11,6 +11,9 @@ gem 'haml'
 gem 'haml-rails'
 gem "jquery-rails"
 
+group :production do
+  gem 'mysql'
+end
 
 gem 'RedCloth'
 
