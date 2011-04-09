@@ -26,8 +26,6 @@ set :scm_verbose, true
 set :deploy_to, applicationdir
 set :deploy_via, :remote_cache
 
-set :revision, "HEAD" # not needed?
-
 role :web, "may.base45.de"                          # Your HTTP server, Apache/etc
 role :app, "may.base45.de" 
 role :db,  "may.base45.de", :primary => true # This is where Rails migrations will run
