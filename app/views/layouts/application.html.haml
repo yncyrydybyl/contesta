@@ -9,7 +9,7 @@
     = javascript_include_tag 'jquery.lightbox-0.5.pack'
     = csrf_meta_tag
     = favicon_link_tag '/images/favicon.ico'
-    = auto_discovery_link_tag(:atom,:controller => :submissions, :format => "atom") 
+    = auto_discovery_link_tag(:atom, submissions_url(:atom)) 
   %body
     .head.clickable{ :url => "/" }
       %h1
