@@ -1,7 +1,7 @@
 @import vars
 @import mix
 body
-  background-color: $primary_color
+  background-color: $background_color
   color: $font_color
   font:
     family: Verdana, Helvetica, Arial
@@ -20,8 +20,8 @@ body
     h1
       margin: 0
       margin-left: 20px
-      font-family: 'Coda', arial, serif
-      color: $font_color
+      @include outline(5px,white)
+      color: $header_font_color
       position: absolute
       bottom: -10px
     .categories
