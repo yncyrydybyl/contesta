@@ -1,0 +1,17 @@
+- title "Platform"
+
+= @platform.name
+%p
+  = raw RedCloth.new(@platform.description).to_html
+%h2 here you see all submissions for 
+=@platform.name
+.submission_entries
+  - @submissions.each do |submission|
+    = render :partial => "submissions/submission_teaser", :object => submission
+- if can? :manage, Platform
+  %p
+    = link_to "Edit", edit_platform_path(@platform)
+    |
+    = link_to "Destroy", @platform, :confirm => 'Are you sure?', :method => :delete
+    |
+    = link_to "View All", platforms_path

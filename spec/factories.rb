@@ -14,7 +14,7 @@ FactoryGirl.define do
     title "some submission title"
     description "some submission description"
     category
-    plattform
+    platform
     user
   end
 end
@@ -24,8 +24,8 @@ FactoryGirl.define do
   end
 end
 FactoryGirl.define do
-  factory :plattform do
-    name "plattform name"
+  factory :platform do
+    name "platform name"
     description "some submission description"
     shortname "shortplatfrm"
   end

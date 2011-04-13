@@ -6,9 +6,9 @@ describe SubmissionsController do
   before (:each) do
     @user = Factory.create(:user)
     @category = Factory.create(:category)
-    @plattform = Factory.create(:plattform)
+    @platform = Factory.create(:platform)
     @submission = Factory.create(:submission, :user => @user) 
-    @submission.plattform = @plattform
+    @submission.platform = @platform
     @submission.category = @category
     sign_in @user
   end

@@ -5,8 +5,8 @@
     = f.text_field :title
     = f.label :category_id
     = collection_select(:submission, :category_id, Category.all, :id, :name, {:prompt => false})
-    = f.label :plattform_id
-    = collection_select(:submission, :plattform_id, Plattform.all, :id, :name, {:prompt => false})
+    = f.label :platform_id
+    = collection_select(:submission, :platform_id, Platform.all, :id, :name, {:prompt => false})
   %p
     = f.label :description
     %br

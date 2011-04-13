@@ -11,10 +11,10 @@ class Ability
         else
           can :create, Submission
           can [:destroy, :update], Submission, :user_id => user.id
-          can :read, [Submission,Page, Category, Plattform]
+          can :read, [Submission,Page, Category, Platform]
         end
       else
-        can :read, [Submission,Page, Category, Plattform]
+        can :read, [Submission,Page, Category, Platform]
       end
     #
     # The first argument to `can` is the action you are giving the user permission to do.
