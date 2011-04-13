@@ -10,15 +10,15 @@
     Category.find_or_create_by_name(cat)
 end
 
-open("db/plattform.txt") do |plattforms|
-  plattforms.read.each_line do |plattform|
-    name, shortname, description = plattform.chomp.split("|")
-    Plattform.create!(:name => name, :shortname => shortname, :description => description)
+open("db/platform.txt") do |platforms|
+  platforms.read.each_line do |platform|
+    name, shortname, description = platform.chomp.split("|")
+    Platform.create!(:name => name, :shortname => shortname, :description => description)
   end
 end
 
-#["meego", "ios", "android"].each do |plattform|
-#  Plattform.find_or_create_by_shortname
+#["meego", "ios", "android"].each do |platform|
+#  Platform.find_or_create_by_shortname
 
 open("db/pages.txt") do |pages|
   pages.read.each_line do |page|
