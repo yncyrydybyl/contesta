@@ -15,7 +15,7 @@ class Ability
           can :read, [Submission,Page, Category, Platform]
         end
       else
-        can :read, [User, Submission,Page, Category, Platform]
+        can :read, [User, Submission, Page, Category, Platform]
       end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

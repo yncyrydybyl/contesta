@@ -46,6 +46,7 @@ GEM
       net-ssh-gateway (>= 1.0.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
+    database_cleaner (0.6.6)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -148,6 +149,7 @@ DEPENDENCIES
   cancan!
   capistrano
   capistrano-ext
+  database_cleaner
   devise
   factory_girl (= 2.0.0.beta1)
   factory_girl_rails (= 1.1.beta1)

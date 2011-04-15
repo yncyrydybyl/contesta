@@ -43,6 +43,7 @@ gem 'capistrano-ext'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
+  gem 'database_cleaner'
   gem 'webrat'
   gem 'rspec'
   gem 'rspec-rails'
