@@ -21,7 +21,7 @@ set :server, :unicorn
 set :use_sudo, false
 set :nginx_path_prefix, "/etc/nginx"
 
-set :branch, 'meego-competition'
+set :branch, 'rspec_examples'
 set :scm_verbose, true
 set :deploy_to, applicationdir
 set :deploy_via, :remote_cache
