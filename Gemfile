@@ -47,7 +47,6 @@ group :development, :test do
   gem 'webrat'
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'rspec-rails-mocha'
   gem 'factory_girl' , '= 2.0.0.beta1'
   gem 'factory_girl_rails', '= 1.1.beta1'
 end
