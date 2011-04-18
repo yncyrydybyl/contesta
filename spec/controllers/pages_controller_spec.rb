@@ -20,13 +20,18 @@ describe PagesController do
         response.should redirect_to root_url
       end
     end
-
+    describe 'create' do
+      it 'should redirect unauthorized users' do
+      post :create
+      response.status.should == 302
+      response.should redirect_to root_url
+      end
+    end
   end
 
   describe 'logged in admin user' do
     before :each do
       @admin = Factory.create(:admin)
-      @submission = Factory.create(:submission)
       sign_in @admin
     end
 
@@ -55,6 +60,28 @@ describe PagesController do
         response.should be_ok
         response.body.should == [].to_xml
         response.content_type.should == 'application/xml'
+      end
+    end
+
+    describe 'create' do
+      it 'should create a new Page and show it' do
+        @page = Factory.build(:page)
+        post :create, :page => @page
+        response.should be_redirect 
+        response.should redirect_to :action => :show, :id => 1 
+      end
+    end
+    describe 'show' do
+      it 'should return a Page by permalink' do
+        @page = Factory.create(:page, :permalink => "slug")
+        get :show, :permalink => "slug"
+        response.should be_ok
+      end
+      it 'should render markdown to html' do
+        @page = Factory.create(:page, :content => "* eins\n* zwei")
+        get :show, :id => @page.id
+        response.should be_ok
+        response.body.should include_text("djska")
       end
     end
   end

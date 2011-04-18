@@ -24,6 +24,14 @@ FactoryGirl.define do
   end
 end
 FactoryGirl.define do
+  factory :page do
+    name "page name"
+    content "# Heading"
+    permalink "permalink"
+  end
+end
+
+FactoryGirl.define do
   factory :platform do
     name "platform name"
     description "some submission description"

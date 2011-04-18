@@ -16,7 +16,7 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = true
   config.use_instantiated_fixtures  = false
-  config.fixture_path = "#{RAILS_ROOT}/spec/fixtures"
+  #config.fixture_path = "#{RAILS_ROOT}/spec/fixtures"
   # config.mock_with :flexmock
   # config.mock_with :rr
   # config.mock_with :rspec
