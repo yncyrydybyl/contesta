@@ -7,11 +7,14 @@ describe SubmissionsController do
     @user = Factory.create(:user)
     @category = Factory.create(:category)
     @platform = Factory.create(:platform)
-    @submission = Factory.create(:submission, :user => @user) 
-    @submission.platform = @platform
-    @submission.category = @category
+    @submission = Factory.create(:submission, :user => @user, :platform => @platform, :category => @category) 
     sign_in @user
   end
+
+  after :each do
+    DatabaseCleaner.clean
+  end
+
 
   it "index action should render index template" do
     get :index
