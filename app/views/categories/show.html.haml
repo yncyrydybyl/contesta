@@ -4,6 +4,6 @@
   = @category.name
 .submission_entries
   - @submissions.each do |submission|
+    %hr
     = render :partial => "submissions/small_sub", :object => submission
-    -unless submission == @submissions.last
-      %hr
+    
