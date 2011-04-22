@@ -9,15 +9,13 @@ body
     size: 14px
 
   .head
-    @include roundcorners(20px)
+    @include roundtopcorners(20px)
 
-    background: $header_color url(/images/berlin_skyline.png) no-repeat
+    background: $header_background_color url(/images/berlin_skyline.png) no-repeat
     height: 120px
     padding: 0
     position: relative
-    border-width: 1px
-    border-color: $header_color
-    border-style: solid
+    border: $plinth_size solid $header_background_color
     
     h1
       margin: 0
@@ -53,15 +51,14 @@ body
   .subs
     font-size: 10px
 
-#container, .head
+#container, .head, #footer
   width: $site_width
-  margin: 20px auto 0
-  margin-bottom: 10px
+  margin: 0px auto 0
+  margin-bottom: 0px
 
 #container
-  background-color: white
-  @include roundcorners(20px)
-
+  background-color: $content_background_color
+  border: 1px solid $content_background_color
   #holder
     padding: 10px 20px 10px 20px
 
