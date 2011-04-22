@@ -1,7 +1,6 @@
 - title "Submissions"
-- if can? :create, Submission
-  %p= link_to "New Submission", new_submission_path
+%h1 All Submissions
 - for submission in @submissions
+  %hr
   = render :partial => "small_sub", :object => submission
-  - unless submission == @submissions.last
-    %hr
+  

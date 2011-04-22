@@ -29,19 +29,24 @@
           = link_to "Sign in", new_user_session_path
       .categories
         %ul
-          %li 
-            = link_to "all submissions", submissions_path
-    -if flash[:alert] || flash[:warning] || flash[:notice]
-      #notices
-        .alert
-          =flash[:alert]
-        .warning
-          =flash[:warning]
-        .notice
-          =flash[:notice]
+          %li= link_to "submissions", submissions_path
+          %li= link_to "categories", categories_path
+          %li= link_to "participants", users_path
+
     #container
+      -if flash[:alert] || flash[:warning] || flash[:notice]
+        #notices
+          =javascript_tag "$('#notices').delay(5000).fadeOut('slow');"
+
+          .alert
+            =flash[:alert]
+          .warning
+            =flash[:warning]
+          .notice
+            =flash[:notice]
+          
       #holder
         = yield
-      #footer
-        = render :partial => "layouts/footer"
+    #footer
+      = render :partial => "layouts/footer"
     = javascript_include_tag 'ga' 
