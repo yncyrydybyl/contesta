@@ -3,11 +3,10 @@
 %table
   %tr
     %th Name
-  - for pages in @pages
+  - for page in @pages
     %tr
-      %td= pages.name
-      %td= link_to 'Show', pages
-      %td= link_to 'Edit', edit_page_path(pages)
-      %td= link_to 'Destroy', pages, :confirm => 'Are you sure?', :method => :delete
-
+      %td= page.name
+      %td= link_to 'Show', page
+      %td= link_to 'Edit', edit_page_path(page)
+      %td= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete
 %p= link_to "New Page", new_page_path
