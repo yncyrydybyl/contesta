@@ -1,17 +1,12 @@
-%h1 Listing users
+%h1 Users with Existing Submissions
 
-%table
-  %tr
-    %th
-    %th
-    %th
-
+.users
   - @users.each do |user|
-    %tr
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New User', new_user_path
+    .user
+      = user.display_name
+      (
+      = pluralize(user.submissions.size,"submission")
+      )
+      - user.submissions.each do |sub|
+        .sub
+          = link_to sub.title, submission_path(sub)
