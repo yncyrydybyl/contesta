@@ -5,6 +5,8 @@ class Submission < ActiveRecord::Base
   belongs_to :platform
   belongs_to :user
   validates_associated :category, :platform, :user
+  validates :title, :length => { :maximum => 100 }
+  validates :url, :length => { :maximum => 256 }
   accepts_nested_attributes_for :screenshots
   has_attached_file :artefact
 end
