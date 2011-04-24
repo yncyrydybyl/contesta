@@ -1,4 +1,4 @@
-atom_feed(:url => submission_url(:atom)) do |feed|
+atom_feed(:url => submissions_url(:format => "atom")) do |feed|
   feed.title("submissions for meego coding competition")
   feed.updated(@submissions.first.updated_at)
   
