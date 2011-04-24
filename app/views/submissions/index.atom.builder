@@ -1,6 +1,6 @@
 atom_feed(:url => submission_url(:atom)) do |feed|
   feed.title("submissions for meego coding competition")
-    feed.updated(@submissions.first ? @submissions.first.created_at : Time.now.utc)
+  feed.updated(@submissions.first.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
   
     for submission in @submissions
       feed.entry(submission) do |entry|
