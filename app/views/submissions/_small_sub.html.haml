@@ -11,8 +11,12 @@
     = link_to small_sub.category.name, category_path(small_sub.category)
   .abstract
     = raw RedCloth.new(small_sub.abstract).to_html unless small_sub.abstract.nil?
-    - if small_sub.url? 
-      = link_to "external url", small_sub.url, :target => :blank
+    - if small_sub.url? or small_sub.artefact.exists?
+      %ul
+        - if small_sub.url? 
+          %li= link_to "visit external url", small_sub.url, :target => :blank
+        - if small_sub.artefact.exists?
+          %li= link_to "download", small_sub.artefact.url 
 
   .screenshots
     - small_sub.screenshots.each do |screenshot|
@@ -24,5 +28,3 @@
     - if small_sub.user == current_user or current_user.admin?
       %ul
         %li= link_to "edit", edit_submission_path(small_sub)  
-        -if small_sub.artefact.exists?
-          %li= link_to "download artefact", small_sub.artefact.url 
