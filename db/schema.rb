@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110413211342) do
+ActiveRecord::Schema.define(:version => 20110424002746) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20110413211342) do
     t.string   "artefact_content_type"
     t.integer  "artefact_file_size"
     t.datetime "artefact_updated_at"
+    t.string   "abstract"
   end
 
   create_table "users", :force => true do |t|

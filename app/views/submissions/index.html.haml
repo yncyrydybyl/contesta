@@ -1,6 +1,7 @@
 - title "Submissions"
 %h1 All Submissions
-- for submission in @submissions
-  %hr
-  = render :partial => "small_sub", :object => submission
+.submission_entries
+  - @submissions.each do |submission|
+    %hr
+    = render :partial => "small_sub", :object => submission
   

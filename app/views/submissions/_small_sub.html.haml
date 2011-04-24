@@ -2,23 +2,23 @@
   %h2
     = link_to small_sub.title, submission_path(small_sub)
   .meta
-    - email = small_sub.user.email
-    = "submitted by #{email.split('@')[0]}@***.#{email.split('.').last}"
+    = "submitted by: #{small_sub.user.display_name}"
     = "on "
     = small_sub.created_at.strftime("%e-%b-%Y")
-    = "platform: " 
+    = "for platform: " 
     = link_to small_sub.platform.name, platform_path(small_sub.platform)
-    = "| category: "
+    = "in category: "
     = link_to small_sub.category.name, category_path(small_sub.category)
-  
-  .description
-    = raw RedCloth.new(small_sub.description).to_html
+  .abstract
+    = raw RedCloth.new(small_sub.abstract).to_html unless small_sub.abstract.nil?
     - if small_sub.url? 
       = link_to "external url", small_sub.url, :target => :blank
 
   .screenshots
     - small_sub.screenshots.each do |screenshot|
       =link_to(image_tag(screenshot.image.url(:thumb)),screenshot.image.url(:large),{:class => "lightbox",:rel => "lightbox_submission#{small_sub.id}"})
+  .description
+    = raw RedCloth.new(small_sub.description).to_html unless small_sub.description.nil?
   %br
   - if current_user 
     - if small_sub.user == current_user or current_user.admin?
