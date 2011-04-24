@@ -5,17 +5,19 @@
       %li=link_to "categories", "/categories"
       %li=link_to "platforms", "/platforms"
       %li=link_to "submissions", "/submissions"
+      %li=link_to "participants", "/users"
   .competition
     %h2 competition
     %ul
-      %li=link_to "announcment", "http://wiki.maemo.org/MeeGo_Coding_Competition_2011"
-      %li=link_to "voting thread ... where?", ""
-      %li=link_to "announcment (german)", "http://meetmeego.org/2011/03/28/meego-coding-competition-2011/"
+      %li=link_to "announcement (english)", "http://talk.maemo.org/showthread.php?t=71561"
+      %li=link_to "announcement (german)", "http://meetmeego.org/2011/03/28/meego-coding-competition-2011/"
+      %li=link_to "wiki page ", "http://wiki.maemo.org/MeeGo_Coding_Competition_2011"
   .about
     %h2 about us
     %ul
       %li=link_to "meetmeego", "http://meetmeego.org"
-      %li=link_to "impressum", "/static/impressum"
+      %li=link_to "impressum", "http://meetmeego.org/impressum/"
+      %li=mail_to "admin@meegofreeday.org","contact us" 
   .software
     %h2 software
     %ul
@@ -36,6 +38,6 @@
       %li=link_to "website", "http://meetmeego.org/"
       %li=link_to "twitter", "http://twitter.com/meetmeego"
       %li=link_to "facebook", "http://facebook.com/meetmeego"
-      %li=mail_to "info@meetmeego.org"
+      %li=mail_to "admin@meetmeego.org", "mail"
 
 
