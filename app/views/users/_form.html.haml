@@ -10,6 +10,8 @@
   %br
   = f.label :last_name
   = f.text_field :last_name
-
+  %br
+  = f.check_box :beginner 
+  = f.label :beginner, "I am a meego programming beginner"
   .actions
     = f.submit 'Save'
