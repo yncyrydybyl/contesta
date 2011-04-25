@@ -16,7 +16,7 @@
         meego coding competition 
       .loginbox
         - if user_signed_in?
-          = current_user.email
+          = link_to current_user.email, edit_user_path(current_user)
           = link_to "Sign out", destroy_user_session_path
           .subs
             - if current_user.submissions
