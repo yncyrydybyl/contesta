@@ -1,70 +1,6 @@
 @import vars
 @import mix
-body
-  background-color: $background_color
-  color: $font_color
-  font:
-    family: Verdana, Helvetica, Arial
-    size: 14px
 
-  .head
-    @include roundcorners(20px)
-
-    background: $header_color url(/images/berlin_skyline.png) no-repeat
-    height: 120px
-    padding: 0
-    position: relative
-    border-width: 1px
-    border-color: $header_color
-    border-style: solid
-    h1
-      margin: 0
-      margin-left: 20px
-      @include outline(5px,white)
-      color: $header_font_color
-      position: absolute
-      bottom: -10px
-    .categories
-      position: absolute
-      bottom: -10px
-      right: 15px
-      ul
-        li
-          display: inline
-a
-  color: $link_color
-  img
-    border: none
-
-.loginbox
-  @include roundcorners(20px)
-  background: $primary_color
-  font-size: 16px
-  right: 5px
-  top: 5px
-  padding: 5px 10px 8px 10px
-  position: absolute
-  color: $font_color
-  a
-    color: $link_color
-  .subs
-    font-size: 10px
-
-.clear
-  clear: both
-  height: 0
-  overflow: hidden
-
-.clickable
-  cursor: pointer
-
-#container, .head
-  width: $site_width
-  margin: 0 auto
-  padding: 0px 40px
-  margin-top: 20px
-
-.description
 
 .featured td
   font-size: 16
@@ -75,22 +11,6 @@ a
   margin-left: 20px
   margin-right: 20px
 
-#flash_notice,
-#flash_error,
-.alert
-  padding: 5px 8px
-  margin: 10px 0
-  background: $alert_box_background
-  color: $alert_font_color
-
-#flash_notice
-  background-color: #ccffcc
-  border: solid 1px #66cc66
-
-#flash_error,
-#flash_alert
-  background-color: #ffcccc
-  border: solid 1px #cc6666
 
 .fieldWithErrors
   display: inline
@@ -122,20 +42,10 @@ a
 
 hr
   @include roundcorners(5px)
-  color: $header_color
-  background-color: transparentize($header_color,0.5)
+  color: $seperator_color
+  background-color: $seperator_color
   height: 8px
   border: 8px
 
 
-.clearfix:after
-  content: "."
-  display: block
-  height: 0
-  clear: both
-  visibility: hidden
-/* Hides from IE-mac \*/
-* html .clearfix
-  height: 1%
-/* End hide from IE-mac */
 

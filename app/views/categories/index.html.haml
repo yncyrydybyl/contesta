@@ -2,11 +2,11 @@
 
 -if can? :manage, Category
   %p= link_to "New Category", new_category_path
-We have the following categories
+%h1 All Categories
 %ul
   -for category in @categories
     %li
-      = link_to category.name, category
+      = link_to(category.name, category) + " (" + category.submissions.size.to_s + ")"
       -if can? :manage, Category
         = link_to 'Show', category
         = link_to 'Edit', edit_category_path(category)

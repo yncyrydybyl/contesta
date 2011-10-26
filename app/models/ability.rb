@@ -13,7 +13,7 @@ class Ability
           can [:destroy, :update], Submission, :user_id => user.id
 <<<<<<< HEAD
           can [:update], User, :id => user.id
-          can :read, [Submission,Page, Category, Platform]
+          can :read, [Submission,Page, Category, Platform,User]
         end
       else
         can :read, [User, Submission, Page, Category, Platform]
