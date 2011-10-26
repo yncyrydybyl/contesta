@@ -24,7 +24,6 @@ FactoryGirl.define do
   end
 end
 FactoryGirl.define do
-<<<<<<< HEAD
   factory :page do
     name "page name"
     content "# Heading"
@@ -33,8 +32,6 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
-=======
->>>>>>> master
   factory :platform do
     name "platform name"
     description "some submission description"

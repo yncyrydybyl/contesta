@@ -7,13 +7,9 @@ describe SubmissionsController do
     @user = Factory.create(:user)
     @category = Factory.create(:category)
     @platform = Factory.create(:platform)
-<<<<<<< HEAD
-    @submission = Factory.create(:submission, :user => @user, :platform => @platform, :category => @category) 
-=======
     @submission = Factory.create(:submission, :user => @user) 
     @submission.platform = @platform
     @submission.category = @category
->>>>>>> master
     sign_in @user
   end
 
