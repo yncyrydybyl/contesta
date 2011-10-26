@@ -8,6 +8,7 @@ gem 'cancan' , :git => "git://github.com/ryanb/cancan.git"
 gem "nifty-generators"
 
 gem 'haml'
+gem 'sass'
 gem 'haml-rails'
 gem "jquery-rails"
 

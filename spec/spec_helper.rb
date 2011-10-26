@@ -13,7 +13,7 @@ RSpec.configure do |config|
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
   #
-  config.mock_with :mocha
+  #config.mock_with :mocha
   config.use_transactional_fixtures = true
   config.use_instantiated_fixtures  = false
   #config.fixture_path = "#{RAILS_ROOT}/spec/fixtures"
