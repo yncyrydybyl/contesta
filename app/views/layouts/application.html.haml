@@ -23,20 +23,7 @@
   %body
     .head.clickable{ :url => "/" }
       %h1
-        meego coding competition 
-      .loginbox
-        - if user_signed_in?
-          = link_to current_user.email, edit_user_path(current_user)
-          = link_to "Sign out", destroy_user_session_path
-          .subs
-            - if current_user.submissions
-              you have #{current_user.submissions.size} submissions
-              = link_to "add more", new_submission_path
-            - else 
-              = link_to "add a submission", new_submission_path
-        - else
-          = link_to "Sign up", new_user_registration_path
-          = link_to "Sign in", new_user_session_path
+        c-base comlinc challenge 
       .categories
         %ul
           %li= link_to "submissions", submissions_path

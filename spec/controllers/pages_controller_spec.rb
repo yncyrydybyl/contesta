@@ -47,18 +47,23 @@ describe PagesController do
     describe 'new' do
       it 'should allow bulding pages' do
         #Page = mock
-        Page.expects(:new).at_least_once
+        # the following line somehow broke factory_girl i.e
+        # stubbed :new with []
+        #Page.expects(:new).at_least_once
         get :new
+        assigns(:page).should be_a_new(Page)
         response.should be_ok
       end
 
       it 'should assign the page instance variable' do
-        #Page = mock
-        Page.stubs(:new => [])
+        # Page = mock
+        # Page.stubs(:new => [])
         get :new, :format => :xml
 
+        assigns(:page).should be_a_new(Page)
         response.should be_ok
-        response.body.should == [].to_xml
+        # Why should we test something we just stubbed with []?
+        # response.body.should == [].to_xml
         response.content_type.should == 'application/xml'
       end
     end
@@ -67,8 +72,8 @@ describe PagesController do
       it 'should create a new Page and show it' do
         @page = Factory.build(:page)
         post :create, :page => @page
-        response.should be_redirect 
-        response.should redirect_to :action => :show, :id => Page.last.id 
+        response.should be_redirect
+        response.should redirect_to :action => :show, :id => Page.last.id
       end
     end
     describe 'show' do

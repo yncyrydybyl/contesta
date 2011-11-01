@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'devise'
-gem 'cancan' , :git => "git://github.com/ryanb/cancan.git"
+gem 'cancan', :git => "git://github.com/ryanb/cancan.git"
 
 #gem 'rails3-generators'
 gem "nifty-generators"
@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-rails-mocha'
-  gem 'factory_girl' , '= 2.0.0.beta1'
-  gem 'factory_girl_rails', '= 1.1.beta1'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 gem "mocha", :group => :test

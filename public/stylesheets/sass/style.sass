@@ -3,30 +3,29 @@
 
 body
   background-color: $background_color
+  background: url(/images/darksky.jpg) no-repeat
   color: $font_color
   font:
     family: Verdana, Helvetica, Arial
     size: 14px
 
   .head
-    @include roundtopcorners(20px)
-
-    background: $header_background_color url(/images/berlin_skyline.png) no-repeat
-    height: 120px
+    background: $header_background_color url(/images/challenge.png) no-repeat
+    height: 129px
     padding: 0px
     position: relative
-    border: $plinth_size solid $header_background_color
     
     h1
-      margin: 0
+      padding-top: 15px
       margin-left: 20px
-      @include outline(5px,white)
       color: $header_font_color
-      position: absolute
-      bottom: 80px
+      font-family: 'Conv_ceva-c2',Sans-Serif
+      font-size: 28px
+
+
     .categories
       position: absolute
-      bottom: -10px
+      bottom: 10px
       left: 0px
       ul
         padding-left: 20px
@@ -59,7 +58,6 @@ body
 
 #container
   background-color: $content_background_color
-  border: 1px solid $content_background_color
   #holder
     padding: 10px 20px 10px 20px
 
@@ -82,5 +80,3 @@ body
 * html .clearfix
   height: 1%
 /* End hide from IE-mac */
-
-

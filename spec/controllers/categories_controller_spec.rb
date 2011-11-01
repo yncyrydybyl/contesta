@@ -11,52 +11,52 @@ describe CategoriesController do
     get :index
     response.should render_template(:index)
   end
-  
+
   it "show action should render show template" do
     get :show, :id => Category.first
     response.should render_template(:show)
   end
-  
+
   it "new action should render new template" do
     sign_in @admin
     get :new
     response.should render_template(:new)
   end
-  
+
   it "create action should render new template when model is invalid" do
     sign_in @admin
-    Category.any_instance.stubs(:valid?).returns(false)
+    Category.any_instance.stub(:valid?).and_return(false)
     post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
     sign_in @admin
-    Category.any_instance.stubs(:valid?).returns(true)
+    Category.any_instance.stub(:valid?).and_return(true)
     post :create
     response.should redirect_to(category_url(assigns[:category]))
   end
-  
+
   it "edit action should render edit template" do
     sign_in @admin
     get :edit, :id => Category.first
     response.should render_template(:edit)
   end
-  
+
   it "update action should render edit template when model is invalid" do
     sign_in @admin
-    Category.any_instance.stubs(:valid?).returns(false)
+    Category.any_instance.stub(:valid?).and_return(false)
     put :update, :id => Category.first
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
     sign_in @admin
-    Category.any_instance.stubs(:valid?).returns(true)
+    Category.any_instance.stub(:valid?).and_return(true)
     put :update, :id => Category.first
     response.should redirect_to(category_url(assigns[:category]))
   end
-  
+
   it "destroy action should destroy model and redirect to index action" do
     sign_in @admin
     category = Category.first
