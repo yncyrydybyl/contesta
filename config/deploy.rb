@@ -12,8 +12,8 @@ set :scm, :git
 set :repository,  "git://dev.c-base.org/contesta/contesta.git"
 
 # on the remote host
-set :applicationdir, "/var/www/contesta_meego_competition"
-set :config_dir, "/etc/rails/contesta_meego_competition"
+set :applicationdir, "/var/www/mcc2012"
+set :config_dir, "/etc/rails/mcc2012"
 set :user , "ruby"
 set :group , "ruby"
 set :server, :unicorn
@@ -21,7 +21,7 @@ set :server, :unicorn
 set :use_sudo, false
 set :nginx_path_prefix, "/etc/nginx"
 
-set :branch, 'meego-competition'
+set :branch, 'mcc2012'
 set :scm_verbose, true
 set :deploy_to, applicationdir
 set :deploy_via, :remote_cache
